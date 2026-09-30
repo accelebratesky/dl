@@ -73,16 +73,16 @@ for n_tree in n_trees:
         fold_acc = accuracy_score(fold_y_val, y_fold_pred)
         acc_temp_list.append(fold_acc)
     
-    mean_acc = np.mean(acc_temp_list)
-    print(f"n_estimators={n_tree} | 5折平均准确率：{mean_acc:.4f}")
+    point = np.mean(acc_temp_list)
+    print(f"n_estimators={n_tree} | 5折平均准确率：{point:.4f}")
     
     # 更新最优超参
-    if mean_acc > best_mean_acc:
-        best_mean_acc = mean_acc
+    if point > best_point:
+        best_point = point
         best_n_estimators = n_tree
 
 print(f"\n==== K折调参完成，最优超参 ====")
-print(f"最优 n_estimators = {best_n_estimators}，对应平均验证准确率：{best_mean_acc:.4f}")
+print(f"最优 n_estimators = {best_n_tree}，对应平均验证准确率：{best_point:.4f}")
 
 
 
